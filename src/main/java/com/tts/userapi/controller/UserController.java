@@ -24,7 +24,8 @@ public class UserController {
 
 	@GetMapping("/users")
 	public List<User> getUsers(@RequestParam(value = "state", required = false) String state) {
-		
+		System.out.println(state);
+
 		if(state != null){
 			 return userRepository.findByState(state);
 		} else {
