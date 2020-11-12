@@ -7,6 +7,7 @@ import com.tts.userapi.model.User;
 import com.tts.userapi.repository.UserReposity;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ public class UserController {
 	@Autowired
 	UserReposity userRepository;
 
+	@CrossOrigin(origins = "*")
 	@GetMapping("/users")
 	public List<User> getUsers(@RequestParam(value = "state", required = false) String state) {
 		System.out.println(state);
