@@ -28,8 +28,8 @@ public class UserController {
 	public List<User> getUsers(@RequestParam(value = "state", required = false) String state) {
 		System.out.println(state);
 
-		if (state != null) {
-			return userRepository.findByState(state);
+		if(state != null){
+			 return userRepository.findByState(state);
 		} else {
 			return (List<User>) userRepository.findAll();
 		}
@@ -61,12 +61,12 @@ public class UserController {
 	}
 
 	@PutMapping("/users/{id}")
-	public void editUser(@PathVariable(value = "id") Long id, @RequestBody User user) {
+	public void editUser(@PathVariable(value="id") Long id, @RequestBody User user){
 		userRepository.save(user);
 	}
 
 	@DeleteMapping("/users/{id}")
-	public void deleteUser(@PathVariable Long id) {
+	public void deleteUser(@PathVariable Long id){
 		userRepository.deleteById(id);
 	}
 
