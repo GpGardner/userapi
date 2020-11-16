@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class User {
@@ -11,9 +16,20 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
+	@NotEmpty
+	@Length(min = 3)
+	@Length(max = 30)
 	private String firstName;
+
+	@NotEmpty
+	@Length(min = 3)
+	@Length(max = 30)
 	private String lastName;
+
+	@NotEmpty
+	@Length(min = 4)
+	@Length(max = 20)
 	private String state;
 
 	public User() {
